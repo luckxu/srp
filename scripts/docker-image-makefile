@@ -1,0 +1,6 @@
+DOCKER_IMAGE=srp-$(TGT)-dev
+
+$(DOCKER_IMAGE):
+	@echo "build $(DOCKER_IMAGE)"
+	@docker build -t $(DOCKER_IMAGE) . -f $(TGT)/dev-image-dockerfile
+	@touch $(DOCKER_IMAGE)

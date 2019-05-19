@@ -1,0 +1,32 @@
+Name:     srpn
+Version:  {VERSION}
+Release:  1%{?dist}
+Summary:  SRPS(simple Reverse Proxy Node)
+License:  GPLv3+
+URL:      https://github.com/luckxu/srp
+Source0:  https://github.com/luckxu/srp/archive/srpn-{VERSION}.tar.gz
+Requires: openssl-libs, libevent
+
+%description
+simple reverse proxy node
+
+%prep
+%setup -q
+
+%build
+make
+
+%install
+mkdir -p $RPM_BUILD_ROOT/usr/sbin
+mkdir -p $RPM_BUILD_ROOT/etc/srp
+cp %{_builddir}/%{name}-%{version}/srpn $RPM_BUILD_ROOT/usr/sbin/
+cp %{_builddir}/%{name}-%{version}/scripts/srpn.conf $RPM_BUILD_ROOT/etc/srp/
+
+%files
+%doc LICENSE
+/usr/sbin/srpn
+/etc/srp/srpn.conf
+
+%changelog
+* {DATE} xuhj <xu_415@126.com> - {VERSION}
+- Release {VERSION}

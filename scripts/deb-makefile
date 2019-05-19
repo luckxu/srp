@@ -1,0 +1,17 @@
+all: release srps-deb srpn-deb
+
+release:
+	make -C /opt release
+
+%-deb:
+	mkdir -p srp/DEBIAN
+	cp /opt/scripts/$(TGT)/$*-control srp/DEBIAN/control
+	sed -i 's/{VERSION}/$(VERSION)/g' srp/DEBIAN/control
+	mkdir -p srp/usr/sbin
+	mkdir -p srp/etc/srp
+	cp /opt/$* srp/usr/sbin
+	cp /opt/scripts/$*.conf srp/etc/srp
+	dpkg-deb -b srp $*-${VERSION}-1_amd64.deb
+	mkdir -p /opt/output/$(TGT)
+	cp $*-${VERSION}-1_amd64.deb /opt/output/$(TGT)
+	@rm -rf srp

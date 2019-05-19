@@ -1,0 +1,7 @@
+Package: srps
+Version: {VERSION}
+Section: utils
+Architecture: amd64
+Depends: libssl1.0.0, libevent-2.0-5, libmysqlclient20
+Maintainer: xuhaijun <xu_415@126.com>
+Description: simple reverse proxy server

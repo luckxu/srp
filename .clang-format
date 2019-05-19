@@ -1,0 +1,8 @@
+# 基础样式
+BasedOnStyle: LLVM
+
+# 缩进宽度
+IndentWidth: 4
+
+# 每行字符的长度
+ColumnLimit: 120

@@ -1,0 +1,7 @@
+Package: srpn
+Version: {VERSION}
+Section: utils
+Architecture: amd64
+Depends: libssl1.1, libevent-2.1-6
+Maintainer: xuhaijun <xu_415@126.com>
+Description: simple reverse proxy node
